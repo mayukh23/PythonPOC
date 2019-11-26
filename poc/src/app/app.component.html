@@ -1,0 +1,64 @@
+<div class='container'>
+    <div class='container' style="float: left; width: 250px;">
+
+      <br>
+      <select class="w3-select w3-border" name="option" (change)='setPtype($event.target.value)'>
+          <option value="" disabled selected>Choose Plant Type</option>
+          <option *ngFor="let item of plantType" value ="{{item}}">{{ item }}</option>
+      </select>
+
+        <br>
+
+        &nbsp;
+        &nbsp;
+        
+        <select class="w3-select w3-border" name="option" (change)='setGtype($event.target.value)'>
+            <option value="" disabled selected>Choose Graph Type</option>
+            <option *ngFor="let item of graphType" value ="{{item}}">{{ item }}</option>
+        </select>
+        <br>
+
+        &nbsp;
+        &nbsp;
+        
+        <select class="w3-select w3-border" name="option" (change)='setGtype2($event.target.value)'>
+            <option value="" disabled selected>Choose Graph Type</option>
+            <option *ngFor="let item of graphType" value ="{{item}}">{{ item }}</option>
+        </select>
+
+        <br>
+
+        &nbsp;
+        &nbsp;
+        
+        <select class="w3-select w3-border" name="option" (change)='setUName($event.target.value)'>
+            <option value="" disabled selected>Choose Graph Type</option>
+            <option *ngFor="let item of unitNames" value ="{{item}}">{{ item }}</option>
+        </select>
+        <br>
+
+        &nbsp;
+        &nbsp;
+        
+        <select class="w3-select w3-border" name="option" (change)='setDRName($event.target.value)'>
+            <option value="" disabled selected>Choose Graph Type</option>
+            <option *ngFor="let item of downtimeReasons" value ="{{item}}">{{ item }}</option>
+        </select>
+        
+    </div>
+    <div class='container' style="float: left; width: 50%; height: 50%;">
+        <img src="http://10.241.120.87:5000/plotOverallDowntime/{{gtype}}?plantType={{ptype}}" />
+    </div>
+    <div class='container' style="float: left; width: 50%; height: 50%;">
+        <img src="http://10.241.120.87:5000/plotOverIndivDowntime/{{gtype}}/{{gtype2}}?type=0&plantType={{ptype}}" />
+    </div>
+    <div class='container' style="float: left; width: 50%; height: 50%;">
+        <img src="http://10.241.120.87:5000/plotOverIndivDowntime/{{gtype}}/{{gtype2}}?type=1&plantType={{ptype}}" />
+    </div>
+    <div class='container' style="float: left; width: 50%; height: 50%;">
+        <img src="http://10.241.120.87:5000/plotOverIndivUnit/{{untype}}/{{downtype}}?type=1&plantType={{ptype}}" />
+    </div>
+
+</div>
+
+<router-outlet></router-outlet>
